@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!--包扫描-->
+    <context:component-scan base-package="cn.jiuzhou.file.service"/>
+    <aop:aspectj-autoproxy/>
+
+    <!--配置接口服务，访问路径localhost:8080/api/helloProxy-->
+    <bean id="helloProxy" class="cn.jiuzhou.file.service.proxy.HelloProxy"/>
+    <bean name="/helloApi" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="helloProxy"/>
+        <property name="serviceInterface" value="cn.jiuzhou.file.api.HelloApi"/>
+    </bean>
+
+    <!--文件上传-->
+    <bean id="fileUploadServiceProxy" class="cn.jiuzhou.file.service.proxy.FileUploadServiceProxy"/>
+    <bean name="/fileUploadServiceApi" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="fileUploadServiceProxy"/>
+        <property name="serviceInterface" value="cn.jiuzhou.file.api.FileUploadServiceApi"/>
+    </bean>
+
+
+</beans>

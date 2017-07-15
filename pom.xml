@@ -6,10 +6,10 @@
   <artifactId>file</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>file-api</module>
     <module>file-domain</module>
-    <module>file-service</module>
+    <module>file-api</module>
     <module>file-dao</module>
+    <module>file-service</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -18,15 +18,37 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <hessian.version>4.0.38</hessian.version>
+    <!--说明：.version 前面的是maven中的artifactId-->
+    <!-- spring版本号 -->
+    <spring.version>3.2.18.RELEASE</spring.version>
+    <!-- log4j日志文件管理包版本 -->
+    <slf4j.version>1.6.6</slf4j.version>
+    <log4j.version>1.2.12</log4j.version>
+    <!-- junit版本号 -->
+    <junit.version>4.10</junit.version>
+    <!-- mybatis版本号 注意mybatis和spring整合版本号的对应 -->
+    <mybatis.version>3.2.1</mybatis.version>
+    <!--spring整合mybatis jar-->
+    <mybatis-spring.version>1.2.2</mybatis-spring.version>
+    <!--mysql 驱动-->
+    <mysql-connector-java.version>5.1.18</mysql-connector-java.version>
+    <!--内含MD5-->
+    <commons-codec.version>1.10</commons-codec.version>
+    <!--sitemesh-->
+    <sitemesh.version>2.4.2</sitemesh.version>
+    <!--jsp页面taglib-->
+    <spring-security.version>3.2.10.RELEASE</spring-security.version>
+    <!--struts-menu-->
+    <struts-menu.version>2.4.3</struts-menu.version>
+    <jstl.version>1.2</jstl.version>
+    <standard.version>1.1.2</standard.version>
+    <spring-modules-validation.version>0.8</spring-modules-validation.version>
+    <test.version>4.11</test.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -35,4 +57,18 @@
       <url>http://192.168.88.40:8081/nexus/content/groups/public/</url>
     </repository>
   </repositories>
+
+  <!--发布包到nexus-->
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <name>Nexus Release Repository</name>
+      <url>http://192.168.88.140:8081/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <name>Nexus Snapshot Repository</name>
+      <url>http://192.168.88.140:8081/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
