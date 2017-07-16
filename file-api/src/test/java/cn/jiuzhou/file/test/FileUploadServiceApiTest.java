@@ -1,6 +1,8 @@
 package cn.jiuzhou.file.test;
 
 import cn.jiuzhou.file.api.FileUploadServiceApi;
+import cn.jiuzhou.file.common.Result;
+import com.alibaba.fastjson.JSON;
 import com.caucho.hessian.client.HessianProxyFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +32,8 @@ public class FileUploadServiceApiTest {
             e.printStackTrace();
         }
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-        api.upload(fileName,bufferedInputStream);
+        Result upload = api.upload(fileName, bufferedInputStream);
+        System.out.println(JSON.toJSONString(upload));
     }
 
     @Test

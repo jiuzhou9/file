@@ -18,7 +18,7 @@ public class FileUploadServiceImpl implements FileUploadService {
     protected final Logger log = LoggerFactory.getLogger(FileUploadServiceImpl.class);
 
 
-    public void upload(String fileName, InputStream data) {
+    public void upload(String fileName, InputStream data) throws Exception{
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
         try {

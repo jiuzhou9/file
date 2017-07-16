@@ -4,9 +4,10 @@
 
   <groupId>cn.jiuzhou.file</groupId>
   <artifactId>file</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <!--<version>1.0-SNAPSHOT</version>-->
+  <version>1.0-RELEASE</version>
   <modules>
-    <module>file-domain</module>
+    <!--<module>file-domain</module>-->
     <module>file-api</module>
     <module>file-dao</module>
     <module>file-service</module>
@@ -50,6 +51,7 @@
 
   <dependencies>
   </dependencies>
+  <!--私库下载-->
   <repositories>
     <repository>
       <id>Nexus</id>
@@ -61,14 +63,15 @@
   <!--发布包到nexus-->
   <distributionManagement>
     <repository>
-      <id>nexus-releases</id>
-      <name>Nexus Release Repository</name>
-      <url>http://192.168.88.140:8081/nexus/content/repositories/releases/</url>
+      <!--id一定要与setting中的配置一致,同时也是工厂的id，name也最好一致-->
+      <id>file-hessian-release</id>
+      <name>file-hessian-releases</name>
+      <url>http://192.168.88.140:8081/nexus/content/repositories/file-hessian-release/</url>
     </repository>
     <snapshotRepository>
-      <id>nexus-snapshots</id>
-      <name>Nexus Snapshot Repository</name>
-      <url>http://192.168.88.140:8081/nexus/content/repositories/snapshots/</url>
+      <id>file-hessian-snapshot</id>
+      <name>file-hessian-snapshot</name>
+      <url>http://192.168.88.140:8081/nexus/content/repositories/file-hessian-snapshot/</url>
     </snapshotRepository>
   </distributionManagement>
 </project>

@@ -11,5 +11,5 @@ public interface FileUploadService {
      * @param fileName 文件名
      * @param data 文件数据
      */
-    public void upload(String fileName,InputStream data);
+    public void upload(String fileName,InputStream data)throws Exception;
 }

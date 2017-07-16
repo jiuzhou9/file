@@ -16,4 +16,7 @@
 
     <!--为了结构更加清晰，导入，实际上可以不导入的-->
     <import resource="hessian-servlet.xml"></import>
+    <!-- 自动装配 -->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />-->
+
 </beans>
