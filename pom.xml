@@ -47,6 +47,7 @@
     <standard.version>1.1.2</standard.version>
     <spring-modules-validation.version>0.8</spring-modules-validation.version>
     <test.version>4.11</test.version>
+    <json.version>1.2.34</json.version>
   </properties>
 
   <dependencies>
